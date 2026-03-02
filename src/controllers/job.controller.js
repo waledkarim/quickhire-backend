@@ -1,7 +1,21 @@
 const mongoose = require("mongoose");
 const Job = require("../models/job.model");
 
-const getJobs = async (req, res) => {
+const getAllJobs = async (req, res) => {
+  try {
+    const jobs = await Job.find().sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      success: true,
+      count: jobs.length,
+      data: jobs,
+    });
+  } catch (error) {
+    return res.status(500).json({ success: false, message: error.message });
+  }
+};
+
+const searchJobs = async (req, res) => {
   try {
     const { search, category, location } = req.query;
 
@@ -95,7 +109,7 @@ const deleteJob = async (req, res) => {
 };
 
 module.exports = {
-  getJobs,
+  getAllJobs,
   getJobById,
   createJob,
   deleteJob,
