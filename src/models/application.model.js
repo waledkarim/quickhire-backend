@@ -1,17 +1,35 @@
 import mongoose, { Schema } from "mongoose";
 
-const application = new Schema(
+const applicationSchema = new Schema(
   {
-    id,
-    job_id,
-    name,
-    email,
-    resume_link,
-    cover_note,
+    job_id: {
+      type: Schema.Types.ObjectId,
+      ref: "Job",
+      required: true,
+    },
+    name: {
+      type: String,
+      trim: true,
+    },
+    email: {
+      type: String,
+      trim: true,
+      match: [/^\S+@\S+\.\S+$/, "Please provide a valid email address"],
+    },
+    resume_link: {
+      type: String,
+      match: [/^(https?:\/\/)[^\s$.?#].[^\s]*$/, "Please provide a valid URL"],
+    },
+    cover_note: {
+      type: String,
+      trim: true,
+    },
   },
-  { timestamps: true },
+  {
+    timestamps: true,
+  },
 );
 
-const Application = mongoose.model("Application", application);
+const Application = mongoose.model("Application", applicationSchema);
 
 export default Application;
