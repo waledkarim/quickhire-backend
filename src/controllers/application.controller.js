@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const Application = require("../models/Application");
-const Job = require("../models/Job");
-const isValidURL = require("@lib/isValidURL");
+const isValidURL = require("../lib/isValidURL");
+const Application = require("../models/application.model");
+const Job = require("../models/job.model");
 
-// POST /api/applications
 const createApplication = async (req, res) => {
   try {
     const { job_id, name, email, resume_link, cover_note } = req.body;

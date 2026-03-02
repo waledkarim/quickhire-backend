@@ -1,4 +1,5 @@
-import mongoose, { Schema } from "mongoose";
+const mongoose = require("mongoose");
+const { Schema } = require("mongoose");
 
 const applicationSchema = new Schema(
   {
@@ -32,4 +33,4 @@ const applicationSchema = new Schema(
 
 const Application = mongoose.model("Application", applicationSchema);
 
-export default Application;
+module.exports = Application;
