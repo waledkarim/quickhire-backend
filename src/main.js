@@ -3,6 +3,8 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const connectDB = require("./lib/db");
+const jobRoutes = require("./routes/job.routes");
+const applicationRoutes = require("./routes/application.routes");
 
 const PORT = process.env.PORT;
 const app = express();
@@ -15,6 +17,9 @@ app.use(
     credentials: true,
   }),
 );
+
+app.use("/api/jobs", jobRoutes);
+app.use("/api/applications", applicationRoutes);
 
 app.listen(PORT, () => {
   connectDB();
