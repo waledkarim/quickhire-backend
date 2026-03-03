@@ -85,7 +85,6 @@ const createJob = async (req, res) => {
   }
 };
 
-// DELETE /api/jobs/:id
 const deleteJob = async (req, res) => {
   try {
     const { id } = req.params;

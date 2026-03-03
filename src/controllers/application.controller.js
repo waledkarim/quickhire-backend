@@ -57,4 +57,4 @@ const createApplication = async (req, res) => {
   }
 };
 
-module.exports = { createApplication };
+module.exports = createApplication;
