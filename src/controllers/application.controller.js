@@ -7,7 +7,6 @@ const createApplication = async (req, res) => {
   try {
     const { job_id, name, email, resume_link, cover_note } = req.body;
 
-    // Basic required-field validation
     if (!job_id || !name || !email || !resume_link || !cover_note) {
       return res.status(400).json({
         success: false,

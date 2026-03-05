@@ -17,9 +17,34 @@ const getAllJobs = async (req, res) => {
       filter.location = { $regex: searchParams.location, $options: "i" };
     }
 
-    const jobs = await Job.find(filter).sort({ createdAt: -1 });
+    const jobs = await Job.aggregate([
+      { $match: filter },
 
-    console.log("Jobs: ", jobs);
+      {
+        $lookup: {
+          from: "applications",
+          localField: "_id",
+          foreignField: "job_id",
+          as: "applications",
+        },
+      },
+
+      {
+        $addFields: {
+          applicationCount: { $size: "$applications" },
+        },
+      },
+
+      {
+        $project: {
+          applications: 0,
+        },
+      },
+
+      {
+        $sort: { createdAt: -1 },
+      },
+    ]);
 
     return res.status(200).json({
       success: true,
