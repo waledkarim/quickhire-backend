@@ -3,6 +3,9 @@ const Job = require("../models/job.model");
 
 const getAllJobs = async (req, res) => {
   try {
+    const searchParams = req.query;
+    console.log("Search Params: ", searchParams);
+
     const jobs = await Job.find().sort({ createdAt: -1 });
 
     return res.status(200).json({
@@ -17,22 +20,18 @@ const getAllJobs = async (req, res) => {
 
 const searchJobs = async (req, res) => {
   try {
-    const { search, category, location } = req.query;
-
-    const filter = {};
-    if (category) filter.category = new RegExp(category, "i");
-    if (location) filter.location = new RegExp(location, "i");
-
-    if (search) {
-      filter.$or = [
-        { title: new RegExp(search, "i") },
-        { company: new RegExp(search, "i") },
-        { description: new RegExp(search, "i") },
-      ];
-    }
-
-    const jobs = await Job.find(filter).sort({ createdAt: -1 });
-    return res.status(200).json({ success: true, data: jobs });
+    // const filter = {};
+    // if (category) filter.category = new RegExp(category, "i");
+    // if (location) filter.location = new RegExp(location, "i");
+    // if (search) {
+    //   filter.$or = [
+    //     { title: new RegExp(search, "i") },
+    //     { company: new RegExp(search, "i") },
+    //     { description: new RegExp(search, "i") },
+    //   ];
+    // }
+    // const jobs = await Job.find(filter).sort({ createdAt: -1 });
+    // return res.status(200).json({ success: true, data: jobs });
   } catch (err) {
     return res.status(500).json({ success: false, message: err.message });
   }
