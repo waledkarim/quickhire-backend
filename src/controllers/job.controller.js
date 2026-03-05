@@ -46,6 +46,8 @@ const getAllJobs = async (req, res) => {
       },
     ]);
 
+    console.log("Jobs: ", jobs);
+
     return res.status(200).json({
       success: true,
       count: jobs.length,
