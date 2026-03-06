@@ -6,7 +6,7 @@ The backend provides RESTful APIs to manage job listings and job applications. A
 
 ### Deployment
 
-The backend has been deployed on Render, link: https://quickhire-backend-c4cr.onrender.com
+The backend has been deployed on Render.
 
 ## Main Tech Stack
 
