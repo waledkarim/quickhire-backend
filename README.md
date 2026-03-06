@@ -5,6 +5,7 @@ This is the backend API for **QuickHire**, a simple job board application built 
 The backend provides RESTful APIs to manage job listings and job applications. All the mentioned endpoints have been implemented for both job route and application route. This is the github link for QuickHire Frontend: https://github.com/waledkarim/quickhire-frontend.
 
 ### Deployment
+
 The backend has been deployed on Render, link: https://quickhire-backend-c4cr.onrender.com
 
 ## Main Tech Stack
@@ -17,6 +18,7 @@ The backend has been deployed on Render, link: https://quickhire-backend-c4cr.on
 ## Validation
 
 **Basic validation is implemented to ensure data integrity:**
+
 - Required fields must be provided
 - Email must be properly formatted
 - Resume link must be a valid URL
@@ -44,20 +46,16 @@ npm install
 ```
 
 ### 3️⃣ Configure environment variables
+
 Create .env file:
 
 ```bash
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 ```
+
 ### 4️⃣ Start the dev server
 
 ```bash
 npm run dev
 ```
-or
-
-```bash
-npm start
-```
-
