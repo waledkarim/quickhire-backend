@@ -55,4 +55,9 @@ MONGODB_URI=your_mongodb_connection_string
 ```bash
 npm run dev
 ```
+or
+
+```bash
+npm start
+```
 
