@@ -5,7 +5,7 @@ This is the backend API for **QuickHire**, a simple job board application built 
 The backend provides RESTful APIs to manage job listings and job applications. All the mentioned endpoints have been implemented for both job route and application route. This is the github link for QuickHire Frontend: https://github.com/waledkarim/quickhire-frontend.
 
 ### Deployment
-The backend has been deployed on Render
+The backend has been deployed on Render, link: https://quickhire-backend-c4cr.onrender.com
 
 ## Main Tech Stack
 
